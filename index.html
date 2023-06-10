@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS dasar</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="root">
+      <input type="text" id="myInput1" placeholder="angka pertama" />
+      <select id="myOp">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">/</option>
+      </select>
+      <input type="text" id="myInput2" placeholder="angka kedua" />
+      <button onclick="getData()" type="submit">kalkulasikan</button>
+    </div>
+
+    <script>
+      const root = document.getElementById("container");
+      const teks = document.createElement("h1");
+      teks.innerHTML = "Kalkulator Pro Max LTE";
+      root.appendChild(teks);
+
+      const tambah = (angka1, angka2) => {
+        const hasil = angka1 + angka2;
+        console.log("hasilnya adalah : ", hasil);
+      };
+
+      tambah(2, 5);
+
+      const hallo = "hallo";
+
+      function getData() {
+        var inputElement1 = document.getElementById("myInput1");
+        var inputElement2 = document.getElementById("myInput2");
+        var inputOp = document.getElementById("myOp");
+        var userInput1 = parseInt(inputElement1.value);
+        var userInput2 = parseInt(inputElement2.value);
+        var userOp = inputOp.value;
+
+        jumlah = 0;
+        operasi = "";
+        if (userOp == "+") {
+          const hasil = userInput1 + userInput2;
+          jumlah = hasil;
+          operasi = " ditambah ";
+        } else if (userOp == "-") {
+          const hasil = userInput1 - userInput2;
+          jumlah = hasil;
+          operasi = " dikurang ";
+        } else if (userOp == "*") {
+          const hasil = userInput1 * userInput2;
+          jumlah = hasil;
+          operasi = " dikali ";
+        } else if (userOp == "/") {
+          const hasil = userInput1 / userInput2;
+          jumlah = hasil;
+          operasi = " dibagi ";
+        } else {
+          alert("silahkan masukkan operator");
+        }
+        alert(
+          "Hasil dari " +
+            userInput1 +
+            operasi +
+            userInput2 +
+            " adalah = " +
+            jumlah
+        );
+      }
+    </script>
+  </body>
+</html>
